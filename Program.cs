@@ -32,26 +32,59 @@
 
 // [345, 897, 568, 234] -> 2
 
-int[] vassive = GetArray(15, 99, 1000);
-int chert = 0;
-foreach (int el in vassive)
-{
-    chert += el %2 > 0 ? 0 : 1;
-}
-Console.WriteLine($" Получился массив [{String.Join(",",vassive)}]");
-Console.WriteLine($" Кол-во чётных чисел {chert}");
-/*------------------------------------- Method ---------------------------------*/
+// int[] vassive = GetArray(15, 99, 1000);
+// int chert = 0;
+// foreach (int el in vassive)
+// {
+//     chert += el %2 == 0 ? 1 : 0;
+// }
+// Console.WriteLine($" Получился массив [{String.Join(",",vassive)}]");
+// Console.WriteLine($" Кол-во чётных чисел {chert}");
+// /*------------------------------------- Method ---------------------------------*/
 
-int[] GetArray(int size, int min, int max)
+// int[] GetArray(int size, int min, int max)
+// {
+//     int[] massive = new int[size];
+//     for (int i = 0; i < size; i++)
+//     {
+//         massive[i] = new Random().Next(min, max);
+
+//     }
+//     return massive;
+
+// }
+
+
+// Задача 2: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, 
+//стоящих на нечётных индексах.
+
+// [3, 7, 23, 12] -> 19
+// [-4, -6, 89, 6] -> 0
+
+
+//int[] SumElement(int size, int minValue, int maxValue);
+int [] SumNoChertEl = FindSumIndex(15, 1, 10);
+int sizeSumNoChertEl = SumNoChertEl.Length;
+int indexChertSum = 0;
+for(int i = 1; i < sizeSumNoChertEl; i = i+2 ){
+
+     indexChertSum +=SumNoChertEl[i];
+}
+
+
+Console.WriteLine($" Получился массив [{String.Join(",",SumNoChertEl)}]");
+Console.WriteLine($"Сумма чисел стоящих на нечётных индексах равна {indexChertSum}");
+
+
+/*-------------------------- Method -------------------------------*/
+
+int[] FindSumIndex(int quantity, int min, int max)
 {
-    int[] massive = new int[size];
-    for (int i = 0; i < size; i++)
+    int [] arrayEl = new int[quantity];
+    for (int i = 0; i < quantity; i++)
     {
-        massive[i] = new Random().Next(min, max);
+        arrayEl[i] = new Random().Next(min, max);
 
     }
-    return massive;
-
-
-
+return arrayEl;
 }
